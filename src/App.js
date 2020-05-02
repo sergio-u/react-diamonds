@@ -1,5 +1,4 @@
 /** @jsx jsx */
-import logo from './logo.svg';
 import './App.css';
 import DiamondForm from "./Components/DiamondForm";
 import {ThemeProvider} from "emotion-theming";
@@ -10,7 +9,7 @@ import StyleTest from "./Components/StyleTest";
 function App() {
     const theme = {
         colors: {
-            primary: 'hotpink',
+            primary: '#1724ab',
             secondary: 'hotpink',
         }
     }
@@ -26,8 +25,6 @@ function App() {
             <ThemeProvider theme={theme}>
                 <DiamondForm/>
             </ThemeProvider>
-            <StyleTest/>
-            <div className="some-class">This is hotpink now!</div>
         </div>
     );
 }
