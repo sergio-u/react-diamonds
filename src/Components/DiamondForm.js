@@ -215,10 +215,12 @@ const DiamondForm = () => {
                 >
                     <Grid item xs={2} onClick={onSubmit}>
                         <Button color={"white"} bgColor={theme.colors.primary}
+                                borderColor={theme.colors.primary}
                                 hoverColor={theme.colors.primary}>Buscar</Button>
                     </Grid>
                     <Grid item xs={2} onClick={handleReset}>
                         <Button color={theme.colors.primary} bgColor={"white"}
+                                borderColor={theme.colors.primary}
                                 hoverColor={theme.colors.primaryTransparent}>Limpiar Filtros</Button>
                     </Grid>
                 </Grid>

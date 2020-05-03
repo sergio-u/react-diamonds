@@ -11,7 +11,8 @@ const DiamondFormElement = ({children, elementTitle}) => {
     h2 {
     text-align:start;
     display:inline;
-    font-weight:600
+    font-weight:600;
+    font-size:0.8em;
     }
     .toolIcon {
     padding-left:5px;
