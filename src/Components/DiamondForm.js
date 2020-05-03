@@ -39,106 +39,106 @@ const DiamondForm = () => {
         [
             {
                 title: "redondo",
-                image: "test"
+                image: "./diamonds/Forma/redondo.png"
             },
             {
                 title: "princesa",
-                image: "test"
+                image: "./diamonds/Forma/princesa.png"
             },
             {
                 title: "esmeralda",
-                image: "test"
+                image: "./diamonds/Forma/esmeralda.png"
             },
             {
                 title: "óvalo",
-                image: "test"
+                image: "./diamonds/Forma/ovalo.png"
             },
             {
                 title: "marquesa",
-                image: "test"
+                image: "./diamonds/Forma/marquesa.png"
             },
             {
                 title: "pera",
-                image: "test"
+                image: "./diamonds/Forma/pera.png"
             },
             {
                 title: "asscher",
-                image: "test"
+                image: "./diamonds/Forma/asscher.png"
             },
             {
                 title: "corazón",
-                image: "test"
+                image: "./diamonds/Forma/corazon.png"
             },
             {
                 title: "cojín",
-                image: "test"
+                image: "./diamonds/Forma/cojijn.png"
             },
             {
                 title: "baguette",
-                image: "test"
+                image: "./diamonds/Forma/baguette.png"
             },
             {
                 title: "trillón",
-                image: "test"
+                image: "./diamonds/Forma/trillon.png"
             },
             {
                 title: "radiante",
-                image: "test"
+                image: "./diamonds/Forma/radiante.png"
             },
         ]
     const colorOptions = [
         {
             title: "transparente",
-            image: "test"
+            image: "./diamonds/Color/incoloro.png"
         },
         {
             title: "casi incoloro",
-            image: "test"
+            image: "./diamonds/Color/casi-incoloro.png"
         },
         {
             title: "ligeramente amarillo",
-            image: "test"
+            image: "./diamonds/Color/ligeramente-amarillo.png"
         },
         {
             title: "amarillo claro",
-            image: "test"
+            image: "./diamonds/Color/amarillo-claro.png"
         },
     ]
     const clarityOptions = [
         {
             title: "perfecta",
-            image: "test"
+            image: "./diamonds/Claridad/perfecta.png"
         },
         {
             title: "imperfecciones no visibles",
-            image: "test"
+            image: "./diamonds/Claridad/imperfecciones-no-visibles.png"
         },
         {
             title: "imperfecciones visibles a 10x",
-            image: "test"
+            image: "./diamonds/Claridad/imperfecciones-10x.png"
         },
 
         {
             title: "imperfecciones visibles a simple vista",
-            image: "test"
+            image: "./diamonds/Claridad/imperfecciones-simple-vista.png"
         },
     ]
     const cutOptions = [
         {
             title: "excelente (máximo brillo)",
-            image: "test"
+            image: "./diamonds/Corte/excelente.png"
         },
         {
             title: "muy bueno (brillante)",
-            image: "test"
+            image: "./diamonds/Corte/muy-bueno.png"
         },
         {
             title: "bueno (brillante)",
-            image: "test"
+            image: "./diamonds/Corte/bueno.png"
         },
         {
             title: "regular (poco brillante)",
-            image: "test"
+            image: "./diamonds/Corte/regular.png"
         },
     ]
     return (
@@ -214,13 +214,14 @@ const DiamondForm = () => {
                       alignItems="center"
                 >
                     <Grid item xs={2} onClick={onSubmit}>
-                        <Button color={"white"} bgColor={theme.colors.primary} hoverColor={theme.colors.primary}>Submit</Button>
+                        <Button color={"white"} bgColor={theme.colors.primary}
+                                hoverColor={theme.colors.primary}>Buscar</Button>
                     </Grid>
                     <Grid item xs={2} onClick={handleReset}>
-                        <Button color={theme.colors.primary} bgColor={"white"} hoverColor={theme.colors.primaryTransparent}>Reset</Button>
+                        <Button color={theme.colors.primary} bgColor={"white"}
+                                hoverColor={theme.colors.primaryTransparent}>Limpiar Filtros</Button>
                     </Grid>
                 </Grid>
-                <button onClick={handleReset}>Reset</button>
             </form>
         </Container>
     )

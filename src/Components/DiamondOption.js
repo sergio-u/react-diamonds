@@ -31,11 +31,11 @@ const DiamondOption = ({diamondOption,parent,innerRef}) => {
         display:inline-block;
         height:100%;
         width:100%;
-        filter: brightness(1.8) grayscale(1) opacity(.7);
+        filter:  opacity(.7);
     }
     
     label:hover {
-                filter: brightness(1.2) grayscale(.5) opacity(.9);
+                filter: opacity(.9);
     }
     
     input:active{
@@ -47,7 +47,8 @@ const DiamondOption = ({diamondOption,parent,innerRef}) => {
     }
     
     .image {
-    width:70px; 
+    width:50px; 
+    height:50px;
     }
 
     
@@ -59,7 +60,7 @@ const DiamondOption = ({diamondOption,parent,innerRef}) => {
                    onChange={handleChange}
                    name={parent} value={title} id={title}/>
             <label htmlFor={title}>
-                <img src="./diamonds/Claridad/perfecta.png" alt="" className="image"/>
+                <img src={diamondOption.image} alt="" className="image"/>
                 <div className="diamond-name">
                     {title.toUpperCase()}
                 </div>

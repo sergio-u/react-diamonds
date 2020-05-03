@@ -10,7 +10,7 @@ function App() {
     const theme = {
         colors: {
             primary: '#1724ab',
-            primaryTransparent: '23, 36, 171, 0.3',
+            primaryTransparent: '23, 36, 171, 0.1',
             primaryHover: '23, 36, 171, 0.6',
             secondary: 'hotpink',
         }
