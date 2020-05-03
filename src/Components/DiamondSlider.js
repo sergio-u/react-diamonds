@@ -3,17 +3,20 @@ import {css, jsx} from '@emotion/core'
 import Slider from "@material-ui/core/Slider";
 import Grid from "@material-ui/core/Grid";
 import Input from "@material-ui/core/Input";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 const DiamondSlider = (props) => {
     const [value, setValue] = useState(props.value);
 
 
     const handleSliderChange = (event, newValue) => {
-        console.log(newValue)
         setValue(newValue);
         //return(newValue);
     };
+    useEffect(()=>{
+        //console.log(props);
+        setValue(props.value);
+    },[props]);
 
     const handleRightInputChange = (event) => {
         //console.log(event.target.value)
@@ -61,8 +64,8 @@ const DiamondSlider = (props) => {
                 />
             </div>
             <div css={[input,flexArount]}>
-                <input type="number" onChange={handleLeftInputChange} value={value? value[0]:""}/>
-                <input type="number" onChange={handleLeftInputChange} value={value? value[1]:""}/>
+                <input type="number" onChange={handleLeftInputChange} step="0.5" value={value? value[0]:""}/>
+                <input type="number" onChange={handleRightInputChange} step="0.5" value={value? value[1]:""}/>
             </div>
         </div>
     );

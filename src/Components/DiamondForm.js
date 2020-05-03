@@ -16,12 +16,18 @@ const DiamondForm = () => {
     `
     const {register, handleSubmit, reset, setValue, control} = useForm({
             defaultValues: {
-                quilataje: [1, 30]
+                "quilataje":[1,30],
+                "precio":[200,5000.0]
             }
         }
         // {defaultValues:{'quilataje': [0, 30]}}
     );
     const onSubmit = data => console.log(data);
+    const handleReset = () =>{
+        reset({
+            "quilataje":[1,30]
+        })
+    }
     const diamondOptions =
         [
             {
@@ -99,7 +105,7 @@ const DiamondForm = () => {
             {/*    <input css={testsCss} name="Developer" type="radio" value="Maybe" ref={register({ required: true })}/>*/}
             {/*    <input type="submit" />*/}
             {/*</form>*/}
-            <form onSubmit={handleSubmit(onSubmit)} onReset={reset}>
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <Grid
                     container
                 >
@@ -131,19 +137,26 @@ const DiamondForm = () => {
                             <Controller
                                 name="quilataje"
                                 control={control}
-                                as={<DiamondSlider min={1} max={30}/>}
+                                as={<DiamondSlider min={0} max={30}/>}
                                 onChange={(e) => {
                                     return {value: e}
                                 }}
                             />
                         </DiamondFormElement>
-                        <DiamondFormElement elementTitle="Precio">
-                            <DiamondSlider min={1} max={5000} control={control} name="quilataje"/>
+                        <DiamondFormElement elementTitle="precio">
+                            <Controller
+                                name="precio"
+                                control={control}
+                                as={<DiamondSlider min={200} max={5000.00}/>}
+                                onChange={(e) => {
+                                    return {value: e}
+                                }}
+                            />
                         </DiamondFormElement>
                     </Grid>
                 </Grid>
                 <input type="submit"/>
-                <button onClick={reset}>Reset</button>
+                <button onClick={handleReset}>Reset</button>
             </form>
         </Container>
     )
