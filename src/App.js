@@ -11,6 +11,7 @@ function App() {
         colors: {
             primary: '#1724ab',
             primaryTransparent: '23, 36, 171, 0.3',
+            primaryHover: '23, 36, 171, 0.6',
             secondary: 'hotpink',
         }
     }

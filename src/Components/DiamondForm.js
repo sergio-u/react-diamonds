@@ -7,14 +7,17 @@ import DiamondSlider from "./DiamondSlider";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import {useForm, Controller} from "react-hook-form";
+// import Button from "@material-ui/core/Button";
+import Button from "./Button";
+import {useTheme} from "emotion-theming";
+import Box from "@material-ui/core/Box";
 
 const DiamondForm = () => {
+    const theme = useTheme();
     const gridCss = css`
     padding:20px;
     `
-    const testsCss = css`
-    `
-    const {register, handleSubmit, reset, setValue, control,getValues} = useForm({
+    const {register, handleSubmit, reset, setValue, control, getValues} = useForm({
             defaultValues: {
                 "quilataje": [1, 30],
                 "precio": [200, 5000.0]
@@ -206,7 +209,17 @@ const DiamondForm = () => {
                         </DiamondFormElement>
                     </Grid>
                 </Grid>
-                <button onClick={onSubmit}>Submit</button>
+                <Grid container item xs={12}
+                      justify="center"
+                      alignItems="center"
+                >
+                    <Grid item xs={2} onClick={onSubmit}>
+                        <Button color={"white"} bgColor={theme.colors.primary} hoverColor={theme.colors.primary}>Submit</Button>
+                    </Grid>
+                    <Grid item xs={2} onClick={handleReset}>
+                        <Button color={theme.colors.primary} bgColor={"white"} hoverColor={theme.colors.primaryTransparent}>Reset</Button>
+                    </Grid>
+                </Grid>
                 <button onClick={handleReset}>Reset</button>
             </form>
         </Container>
