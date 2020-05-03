@@ -1,9 +1,69 @@
-import React from 'react';
+/** @jsx jsx */
+import {css, jsx} from '@emotion/core'
+import Slider from "@material-ui/core/Slider";
+import Grid from "@material-ui/core/Grid";
+import Input from "@material-ui/core/Input";
+import {useState} from "react";
 
-const DiamondSlider = () => {
+const DiamondSlider = (props) => {
+    const [value, setValue] = useState(props.value);
+
+
+    const handleSliderChange = (event, newValue) => {
+        console.log(newValue)
+        setValue(newValue);
+        //return(newValue);
+    };
+
+    const handleRightInputChange = (event) => {
+        //console.log(event.target.value)
+        const newLim =event.target.value === '' ? '' : Number(event.target.value);
+        //console.log(newLim);
+        setValue([value[0],newLim]);
+    };
+
+    const handleLeftInputChange = (event) => {
+        // console.log(event.target.value)
+        const newLim =event.target.value === '' ? '' : Number(event.target.value);
+        // console.log(newLim);
+        setValue([newLim,value[1]]);
+    };
+
+
+    const wrapperStyle=css`
+    display:flex;
+    flex-direction:column;
+    `
+    const flexArount=css`
+    display:flex;
+    justify-content:space-between;
+    `
+    const input=css`
+    input {
+    width:50px;
+    }`
+    const handleChange = () => {
+
+    }
     return (
-        <div>
-            
+        <div css={wrapperStyle}>
+            <div css={flexArount}>
+                <img src="./diamonds/Claridad/perfecta.png" alt="" className="image"/>
+                <img src="./diamonds/Claridad/perfecta.png" alt="" className="image"/>
+            </div>
+            <div>
+                <Slider
+                    value={value}
+                    onChange={handleSliderChange}
+                    valueLabelDisplay="auto"
+                    min={props.min}
+                    max={props.max}
+                />
+            </div>
+            <div css={[input,flexArount]}>
+                <input type="number" onChange={handleLeftInputChange} value={value? value[0]:""}/>
+                <input type="number" onChange={handleLeftInputChange} value={value? value[1]:""}/>
+            </div>
         </div>
     );
 };

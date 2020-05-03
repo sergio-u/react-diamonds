@@ -10,13 +10,14 @@ function App() {
     const theme = {
         colors: {
             primary: '#1724ab',
+            primaryTransparent: '23, 36, 171, 0.3',
             secondary: 'hotpink',
         }
     }
     return (
         <div className="App">
             <Global styles={css`
-            @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;400;600&display=swap');
             body {
                 font-family: 'Nunito Sans', sans-serif !important;
             }
