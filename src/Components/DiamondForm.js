@@ -16,16 +16,17 @@ const DiamondForm = () => {
     `
     const {register, handleSubmit, reset, setValue, control} = useForm({
             defaultValues: {
-                "quilataje":[1,30],
-                "precio":[200,5000.0]
+                "quilataje": [1, 30],
+                "precio": [200, 5000.0]
             }
         }
         // {defaultValues:{'quilataje': [0, 30]}}
     );
     const onSubmit = data => console.log(data);
-    const handleReset = () =>{
+    const handleReset = () => {
         reset({
-            "quilataje":[1,30]
+            "quilataje": [1, 30],
+            "precio": [200, 5000.0]
         })
     }
     const diamondOptions =
@@ -97,6 +98,43 @@ const DiamondForm = () => {
             image: "test"
         },
     ]
+    const clarityOptions = [
+        {
+            title: "perfecta",
+            image: "test"
+        },
+        {
+            title: "imperfecciones no visibles",
+            image: "test"
+        },
+        {
+            title: "imperfecciones visibles a 10x",
+            image: "test"
+        },
+
+        {
+            title: "imperfecciones visibles a simple vista",
+            image: "test"
+        },
+    ]
+    const cutOptions = [
+        {
+            title: "transparente",
+            image: "test"
+        },
+        {
+            title: "casi incoloro",
+            image: "test"
+        },
+        {
+            title: "ligeramente amarillo",
+            image: "test"
+        },
+        {
+            title: "amarillo claro",
+            image: "test"
+        },
+    ]
     return (
         <Container>
             {/*<form onSubmit={handleSubmit(onSubmit)}>*/}
@@ -126,7 +164,11 @@ const DiamondForm = () => {
                             />
                         </DiamondFormElement>
                         <DiamondFormElement elementTitle="Claridad">
-                            <DiamondPicker/>
+                            <DiamondPicker parent="claridad"
+                                           size={3}
+                                           innerRef={register}
+                                           diamondOptions={clarityOptions}
+                            />
                         </DiamondFormElement>
                     </Grid>
                     <Grid css={gridCss} item xs={6}>
@@ -137,7 +179,7 @@ const DiamondForm = () => {
                             <Controller
                                 name="quilataje"
                                 control={control}
-                                as={<DiamondSlider min={0} max={30}/>}
+                                as={<DiamondSlider min={1} max={30}/>}
                                 onChange={(e) => {
                                     return {value: e}
                                 }}

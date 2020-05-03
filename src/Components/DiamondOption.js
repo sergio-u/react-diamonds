@@ -11,12 +11,14 @@ const DiamondOption = ({diamondOption,parent,innerRef}) => {
         el[0].classList.add("selected-mine");
     }
     const style = css`
+    height:100%;
+    border: 1px solid ${theme.colors.primary};
+    margin-bottom: -1px;
+    margin-left: -1px;
     .selected-mine{
         background:green;!important
     }
-    border: 2px solid ${theme.colors.primary};
-    margin-bottom: -1px;
-    margin-left: -1px;
+    
     input {
     display:none
     }
@@ -40,9 +42,8 @@ const DiamondOption = ({diamondOption,parent,innerRef}) => {
         opacity:.9;
     }
     .diamond-name {
-    font-weight:200;
-    font-size:0.75em;
-    white-space:nowrap;
+    font-weight:400;
+    font-size:0.6em;
     }
     
     .image {
