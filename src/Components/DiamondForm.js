@@ -28,7 +28,7 @@ const DiamondForm = () => {
     }
     const handleReset = () => {
         reset({
-            "quilataje": [10, 30],
+            "quilataje": [1, 30],
             "precio": [200, 5000.0]
         })
     }
@@ -189,8 +189,8 @@ const DiamondForm = () => {
                                 name="quilataje"
                                 control={control}
                                 as={<DiamondSlider min={1} max={30}/>}
-                                onChange={(e) => {
-                                    return {value: e}
+                                onChange={([selected]) => {
+                                    return selected;
                                 }}
                             />
                         </DiamondFormElement>
@@ -199,8 +199,8 @@ const DiamondForm = () => {
                                 name="precio"
                                 control={control}
                                 as={<DiamondSlider min={200} max={5000.00}/>}
-                                onChange={(e) => {
-                                    return {value: e}
+                                onChange={([selected]) => {
+                                    return selected;
                                 }}
                             />
                         </DiamondFormElement>

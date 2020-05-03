@@ -12,6 +12,7 @@ const DiamondSlider = (props) => {
 
     const handleSliderChange = (event, newValue) => {
         setValue(newValue);
+        props.onChange(newValue);
         //return(newValue);
     };
     useEffect(()=>{
@@ -23,14 +24,18 @@ const DiamondSlider = (props) => {
         //console.log(event.target.value)
         const newLim =event.target.value === '' ? '' : Number(event.target.value);
         //console.log(newLim);
-        setValue([value[0],newLim]);
+        const newValue = [value[0],newLim];
+        setValue(newValue);
+        props.onChange(newValue);
     };
 
     const handleLeftInputChange = (event) => {
         // console.log(event.target.value)
         const newLim =event.target.value === '' ? '' : Number(event.target.value);
         // console.log(newLim);
-        setValue([newLim,value[1]]);
+        const newValue = [newLim,value[1]];
+        setValue(newValue);
+        props.onChange(value);
     };
 
 
@@ -65,8 +70,8 @@ const DiamondSlider = (props) => {
                 />
             </div>
             <div css={[input,flexArount]}>
-                {/*<input type="number" onChange={handleLeftInputChange} step="0.5" value={value? value[0]:""}/>*/}
-                {/*<input type="number" onChange={handleRightInputChange} step="0.5" value={value? value[1]:""}/>*/}
+                <input type="number" onChange={handleLeftInputChange} step="0.5" value={value? value[0]:""}/>
+                <input type="number" onChange={handleRightInputChange} step="0.5" value={value? value[1]:""}/>
             </div>
         </div>
     );
