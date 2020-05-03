@@ -14,7 +14,7 @@ const DiamondForm = () => {
     `
     const testsCss = css`
     `
-    const {register, handleSubmit, reset, setValue, control} = useForm({
+    const {register, handleSubmit, reset, setValue, control,getValues} = useForm({
             defaultValues: {
                 "quilataje": [1, 30],
                 "precio": [200, 5000.0]
@@ -22,10 +22,13 @@ const DiamondForm = () => {
         }
         // {defaultValues:{'quilataje': [0, 30]}}
     );
-    const onSubmit = data => console.log(data);
+    const onSubmit = (e) => {
+        e.preventDefault();
+        console.log(JSON.stringify(getValues()));
+    }
     const handleReset = () => {
         reset({
-            "quilataje": [1, 30],
+            "quilataje": [10, 30],
             "precio": [200, 5000.0]
         })
     }
@@ -119,19 +122,19 @@ const DiamondForm = () => {
     ]
     const cutOptions = [
         {
-            title: "transparente",
+            title: "excelente (máximo brillo)",
             image: "test"
         },
         {
-            title: "casi incoloro",
+            title: "muy bueno (brillante)",
             image: "test"
         },
         {
-            title: "ligeramente amarillo",
+            title: "bueno (brillante)",
             image: "test"
         },
         {
-            title: "amarillo claro",
+            title: "regular (poco brillante)",
             image: "test"
         },
     ]
@@ -143,7 +146,7 @@ const DiamondForm = () => {
             {/*    <input css={testsCss} name="Developer" type="radio" value="Maybe" ref={register({ required: true })}/>*/}
             {/*    <input type="submit" />*/}
             {/*</form>*/}
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={onSubmit}>
                 <Grid
                     container
                 >
@@ -173,7 +176,13 @@ const DiamondForm = () => {
                     </Grid>
                     <Grid css={gridCss} item xs={6}>
                         <DiamondFormElement elementTitle="Corte">
-                            <DiamondPicker/>
+
+                            <DiamondPicker parent="corte"
+                                           size={3}
+                                           innerRef={register}
+                                           diamondOptions={cutOptions}
+                            />
+
                         </DiamondFormElement>
                         <DiamondFormElement elementTitle="Quilataje">
                             <Controller
@@ -197,7 +206,7 @@ const DiamondForm = () => {
                         </DiamondFormElement>
                     </Grid>
                 </Grid>
-                <input type="submit"/>
+                <button onClick={onSubmit}>Submit</button>
                 <button onClick={handleReset}>Reset</button>
             </form>
         </Container>

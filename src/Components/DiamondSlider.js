@@ -6,6 +6,7 @@ import Input from "@material-ui/core/Input";
 import {useEffect, useState} from "react";
 
 const DiamondSlider = (props) => {
+    // const [value, setValue] = useState(props.value?props.value:[props.min,props.max]);
     const [value, setValue] = useState(props.value);
 
 
@@ -64,8 +65,8 @@ const DiamondSlider = (props) => {
                 />
             </div>
             <div css={[input,flexArount]}>
-                <input type="number" onChange={handleLeftInputChange} step="0.5" value={value? value[0]:""}/>
-                <input type="number" onChange={handleRightInputChange} step="0.5" value={value? value[1]:""}/>
+                {/*<input type="number" onChange={handleLeftInputChange} step="0.5" value={value? value[0]:""}/>*/}
+                {/*<input type="number" onChange={handleRightInputChange} step="0.5" value={value? value[1]:""}/>*/}
             </div>
         </div>
     );
