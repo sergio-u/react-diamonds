@@ -1,9 +1,10 @@
 /** @jsx jsx */
+/** @jsxFrag React.Fragment */
 import {css, jsx} from '@emotion/core'
 import Slider from "@material-ui/core/Slider";
 import Grid from "@material-ui/core/Grid";
 import Input from "@material-ui/core/Input";
-import {useEffect, useState} from "react";
+import {Fragment, useEffect, useState} from "react";
 
 const DiamondSlider = (props) => {
     // const [value, setValue] = useState(props.value?props.value:[props.min,props.max]);
@@ -15,50 +16,59 @@ const DiamondSlider = (props) => {
         props.onChange(newValue);
         //return(newValue);
     };
-    useEffect(()=>{
+    useEffect(() => {
         //console.log(props);
         setValue(props.value);
-    },[props]);
+    }, [props]);
 
     const handleRightInputChange = (event) => {
         //console.log(event.target.value)
-        const newLim =event.target.value === '' ? '' : Number(event.target.value);
+        const newLim = event.target.value === '' ? '' : Number(event.target.value);
         //console.log(newLim);
-        const newValue = [value[0],newLim];
+        const newValue = [value[0], newLim];
         setValue(newValue);
         props.onChange(newValue);
     };
 
     const handleLeftInputChange = (event) => {
         // console.log(event.target.value)
-        const newLim =event.target.value === '' ? '' : Number(event.target.value);
+        const newLim = event.target.value === '' ? '' : Number(event.target.value);
         // console.log(newLim);
-        const newValue = [newLim,value[1]];
+        const newValue = [newLim, value[1]];
         setValue(newValue);
         props.onChange(value);
     };
 
 
-    const wrapperStyle=css`
+    const wrapperStyle = css`
     display:flex;
     flex-direction:column;
     `
-    const flexArount=css`
+    const flexArount = css`
     display:flex;
     justify-content:space-between;
     `
-    const input=css`
+    const input = css`
     input {
     width:50px;
     }`
-    const handleChange = () => {
+    const small=css`
+    height:20px;
+    align-self:center;
+    `
 
-    }
     return (
         <div css={wrapperStyle}>
             <div css={flexArount}>
-                <img src="./diamonds/Claridad/perfecta.png" alt="" className="image"/>
-                <img src="./diamonds/Claridad/perfecta.png" alt="" className="image"/>
+                {props.image ?
+                    (
+                        <Fragment>
+                        <img src={props.image} alt="" className="image small" css={small}/>
+                        <img src={props.image} alt="" className="image"/>
+                        </Fragment>
+                    )
+                    : ""
+                }
             </div>
             <div>
                 <Slider
@@ -69,9 +79,9 @@ const DiamondSlider = (props) => {
                     max={props.max}
                 />
             </div>
-            <div css={[input,flexArount]}>
-                <input type="number" onChange={handleLeftInputChange} step="0.5" value={value? value[0]:""}/>
-                <input type="number" onChange={handleRightInputChange} step="0.5" value={value? value[1]:""}/>
+            <div css={[input, flexArount]}>
+                <input type="number" onChange={handleLeftInputChange} step="0.5" value={value ? value[0] : ""}/>
+                <input type="number" onChange={handleRightInputChange} step="0.5" value={value ? value[1] : ""}/>
             </div>
         </div>
     );

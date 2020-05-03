@@ -191,7 +191,7 @@ const DiamondForm = () => {
                             <Controller
                                 name="quilataje"
                                 control={control}
-                                as={<DiamondSlider min={1} max={30}/>}
+                                as={<DiamondSlider min={1} max={30} image={"./diamonds/Claridad/perfecta.png"}/>}
                                 onChange={([selected]) => {
                                     return selected;
                                 }}
